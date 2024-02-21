@@ -1,4 +1,3 @@
 package com.example.manageauthor.controller;
-
-public class ControllerAuthor {
+public class AssignmentServlet {
 }
