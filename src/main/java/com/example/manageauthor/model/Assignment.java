@@ -11,6 +11,14 @@ public class Assignment {
     public Assignment() {
     }
 
+    public Assignment(String dateStart, String dateEnd, String note, int idPost, int idAuthor) {
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.note = note;
+        this.idPost = idPost;
+        this.idAuthor = idAuthor;
+    }
+
     public Assignment(int id, String dateStart, String dateEnd, String note, int idPost, int idAuthor) {
         this.id = id;
         this.dateStart = dateStart;

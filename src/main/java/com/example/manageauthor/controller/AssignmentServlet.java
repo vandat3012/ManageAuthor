@@ -82,11 +82,13 @@ public class AssignmentServlet extends HelloServlet {
 }
 
     private void createNewAssignment(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("id"));
-        int price = Integer.parseInt(req.getParameter("price"));
-        int idAuthor = Integer.parseInt(req.getParameter("id_author"));
+        String dateS = req.getParameter("dateS");
+        String dateE = req.getParameter("dateE");
+        String note = req.getParameter("note");
         int idPost = Integer.parseInt(req.getParameter("id_post"));
-
+        int idAuthor = Integer.parseInt(req.getParameter("id_author"));
+        Assignment assignment = new Assignment(dateS,dateE,note,idPost,idAuthor);
+        iAssignmentService.createAssignment(assignment);
         try {
             resp.sendRedirect("/assignment");
         } catch (IOException e) {

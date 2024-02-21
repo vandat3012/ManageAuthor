@@ -16,28 +16,24 @@
 <body>
 <form method="post">
     <div class="mb-3">
-        <label for="exampleInputId" class="form-label">ID</label>
-        <input type="text" name = "id" class="form-control" id="exampleInputId">
-    </div>
-    <div class="mb-3">
         <label for="exampleInputName" class="form-label">Name</label>
         <input type="text" name="name"  class="form-control" id="exampleInputName">
     </div>
     <div class="mb-3">
-        <label for="exampleInputAge" class="form-label">Age</label>
-        <input type="text" name="age"  class="form-control" id="exampleInputAge">
+        <label for="exampleInputAge" class="form-label">Date Start</label>
+        <input type="text" name="dateS"  class="form-control" id="exampleInputAge">
     </div>
     <div class="mb-3">
-        <label for="exampleInputAddress" class="form-label">Address</label>
-        <input type="text" name="address"  class="form-control" id="exampleInputAddress">
+        <label for="exampleInputAddress" class="form-label">Date End</label>
+        <input type="text" name="dateE"  class="form-control" id="exampleInputAddress">
     </div>
     <div class="mb-3">
-        <label for="exampleInputPhone" class="form-label">Phone Number</label>
-        <input type="text" name="phonenumber"  class="form-control" id="exampleInputPhone">
+        <label for="exampleInputPhone" class="form-label">Note</label>
+        <input type="text" name="note"  class="form-control" id="exampleInputPhone">
     </div>
     <div class="mb-3">
         <label class="form-select">Name Posts</label>
-        <select name="posts" class="form-select" aria-label="Default select example">
+        <select name="id_post" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
             <c:forEach items="${post}" var="p">
                 <option value="${p.id}">${p.name}</option>
@@ -45,18 +41,24 @@
         </select>
     </div>
     <div class="mb-3">
-        <label class="form-select">Date</label>
-        <select name="posts" class="form-select" aria-label="Default select example">
+        <label class="form-select">Author</label>
+        <select name="id_author" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
-            <c:forEach items="${post}" var="p">
-                <option value="${p.id}">${p.date}</option>
+            <c:forEach items="${authors}" var="a">
+                <option value="${a.id}">${a.name}</option>
             </c:forEach>
         </select>
     </div>
     <div class="mb-3">
-        <label for="exampleInputPrice" class="form-label">Price</label>
-        <input type="text" name = "price" class="form-control" id="exampleInputPrice">
+        <label class="form-select">Price</label>
+        <select name="id_author" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <c:forEach items="${authors}" var="a">
+                <option value="${a.id}">${a.price}</option>
+            </c:forEach>
+        </select>
     </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>

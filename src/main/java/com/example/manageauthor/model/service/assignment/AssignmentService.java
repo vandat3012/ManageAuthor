@@ -45,11 +45,13 @@ public class AssignmentService implements IAssignmentService {
     public void createAssignment(Assignment assignment) {
         Connection connection = getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into assignment values \n" +
-                    "(?,?,?,?), ");
-            preparedStatement.setInt(1,assignment.getId());
-            preparedStatement.setInt(3,assignment.getIdAuthor());
-            preparedStatement.setInt(4,assignment.getIdPost());
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into assignment(date_start,date_end,note,id_author,id_post) values \n" +
+                    "(?,?,?,?,?); ");
+            preparedStatement.setString(1,assignment.getDateStart());
+            preparedStatement.setString(2,assignment.getDateEnd());
+            preparedStatement.setString(3,assignment.getNote());
+            preparedStatement.setInt(4,assignment.getIdAuthor());
+            preparedStatement.setInt(5,assignment.getIdPost());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
