@@ -14,8 +14,14 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
+
 <table class="table" border="1px">
     <thead>
+    <form action="/assignment" method="post">
+        <input name="action" value="find" hidden="">
+        <input name="nameAuthor">
+        <button class="btn btn-warning" type="submit">Find</button>
+    </form>
     <h1 align="center" class="">LIST ASSIGNMENT</h1>
     <tr>
         <th scope="col">ID</th>
@@ -50,13 +56,8 @@
     </c:forEach>
 
 </table>
-<div>
+<div class="row justify-content-center mt-4">
     <a class="btn btn-warning" href="/assignment?action=create" role="button">Create New Assignment</a>
-    <form action="/assignment" method="post">
-        <input name="action" value="find" hidden="">
-        <input name="nameAuthor">
-        <button type="submit">Find</button>
-    </form>
 </div>
 
 </body>
