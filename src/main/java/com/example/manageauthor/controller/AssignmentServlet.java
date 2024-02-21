@@ -35,8 +35,30 @@ public class AssignmentServlet extends HelloServlet {
             case "create" :
                 showFormCreate(request,response);
                 break;
+            case "edit" :
+                showFormEdit(request,response);
+                break;
             default:
                 showAllAssignment(request,response);
+        }
+    }
+
+    private void showFormEdit(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Assignment assignment = iAssignmentService.findById(id);
+        List<Posts> posts = iPostsService.findAllPost();
+        List<Author> authors = iAuthorService.findAllAuthor();
+        request.setAttribute("assignment",assignment);
+        request.setAttribute("post",posts);
+        request.setAttribute("author",authors);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+            response.sendRedirect("/assignment");
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -76,10 +98,29 @@ public class AssignmentServlet extends HelloServlet {
             case "create" :
                 createNewAssignment(req,resp);
                 break;
+            case "edit" :
+                editAssignment(req,resp);
+                break;
             default:
                 showAllAssignment(req,resp);
     }
 }
+
+    private void editAssignment(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String dateS = req.getParameter("dateS");
+        String dateE = req.getParameter("dateE");
+        String note = req.getParameter("note");
+        int idPost = Integer.parseInt(req.getParameter("id_post"));
+        int idAuthor = Integer.parseInt(req.getParameter("id_author"));
+        Assignment assignment = new Assignment(id,dateS,dateE,note,idPost,idAuthor);
+        iAssignmentService.edit(assignment);
+        try {
+            resp.sendRedirect("/assignment");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private void createNewAssignment(HttpServletRequest req, HttpServletResponse resp) {
         String dateS = req.getParameter("dateS");
@@ -95,4 +136,5 @@ public class AssignmentServlet extends HelloServlet {
             throw new RuntimeException(e);
         }
     }
+
     }

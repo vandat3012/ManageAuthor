@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ADMIN
@@ -13,6 +14,58 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
 
+    <div class="row justify-content-center mt-4">
+        <form class="col-md-6" method="post">
+            <h1 class="">Edit Assignment</h1>
+            <div  class="form-group">
+                <label hidden="hidden" for="txtId">ID</label>
+                <input type="hidden" class="form-control" name="id" id="txtId" value="${requestScope["assignment"].getId()}">
+            </div>
+            <div class="form-group">
+                <label for="s">Date Start</label>
+                <input type="text" class="form-control" name="dateS" id="s" value="${requestScope["assginment"].getDateStart()}">
+            </div>
+            <div class="form-group">
+                <label for="e">Date Start</label>
+                <input type="text" class="form-control" name="dateE" id="e" value="${requestScope["assignment"].getDateEnd()}">
+            </div>
+            <div class="form-group">
+                <label for="note">Note</label>
+                <input type="text" class="form-control" name="note" id="note" value="${requestScope["student"].getNote()}">
+            </div>
+            <div class="form-group">
+                <label for="id">Lớp</label>
+                <select id="id" class="form-control" name="id_post">
+                    <c:forEach items="${post}" var="p">
+                        <option value="${p.id}">${p.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id">Lớp</label>
+                <select class="form-control" name="id_author">
+                    <c:forEach items="${author}" var="a">
+                        <option value="${a.id}">${a.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id">Lớp</label>
+                <select class="form-control" name="id_author">
+                    <c:forEach items="${author}" var="a">
+                        <option value="${a.id}">${a.price}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group mt-2">
+                <button class="btn btn-success" role="button" type="submit">Save</button>
+                <button class="btn btn-warning" role="button">Return</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
 </body>
 </html>

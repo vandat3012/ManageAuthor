@@ -8,4 +8,6 @@ import java.util.List;
 public interface IAssignmentService {
     List<DTOAssignment> findAll();
     void createAssignment(Assignment assignment);
+    Assignment findById (int id);
+    void edit (Assignment assignment);
 }

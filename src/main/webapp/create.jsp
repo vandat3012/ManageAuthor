@@ -16,10 +16,6 @@
 <body>
 <form method="post">
     <div class="mb-3">
-        <label for="exampleInputName" class="form-label">Name</label>
-        <input type="text" name="name"  class="form-control" id="exampleInputName">
-    </div>
-    <div class="mb-3">
         <label for="exampleInputAge" class="form-label">Date Start</label>
         <input type="text" name="dateS"  class="form-control" id="exampleInputAge">
     </div>

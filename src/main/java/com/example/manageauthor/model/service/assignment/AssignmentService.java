@@ -22,7 +22,8 @@ public class AssignmentService implements IAssignmentService {
             PreparedStatement preparedStatement = connection.prepareStatement("select am.id,am.date_start,am.date_end,am.note,p.name as name_post,a.name as name_author,a.price\n" +
                     "from assignment am\n" +
                     "join author a on a.id = am.id_author\n" +
-                    "join posts p on p.id = am.id_post");
+                    "join posts p on p.id = am.id_post\n" +
+                    "order by am.id asc;");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -52,6 +53,49 @@ public class AssignmentService implements IAssignmentService {
             preparedStatement.setString(3,assignment.getNote());
             preparedStatement.setInt(4,assignment.getIdAuthor());
             preparedStatement.setInt(5,assignment.getIdPost());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Assignment findById(int id) {
+        Assignment assignment = null;
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select am.id,am.date_start,am.date_end,am.note,am.id_post,am.id_author\n" +
+                    "from assignment am\n" +
+                    "where am.id = ?;");
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idA = resultSet.getInt("id");
+                String dateStart = resultSet.getString("date_start");
+                String dateEnd = resultSet.getString("date_end");
+                String note = resultSet.getString("note");
+                int idPost = resultSet.getInt("id_post");
+                int idAuthor = resultSet.getInt("id_author");
+                assignment = new Assignment(idA,dateStart,dateEnd,note,idPost,idAuthor);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return assignment;
+    }
+
+    @Override
+    public void edit(Assignment assignment) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("update assignment am set am.date_start = ?,am.date_end=?,am.note=?,am.id_post=?,am.id_author =?\n" +
+                    "where am.id = ?;");
+            preparedStatement.setString(1,assignment.getDateStart());
+            preparedStatement.setString(2,assignment.getDateEnd());
+            preparedStatement.setString(3,assignment.getNote());
+            preparedStatement.setInt(4,assignment.getIdAuthor());
+            preparedStatement.setInt(5,assignment.getIdPost());
+            preparedStatement.setInt(6,assignment.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

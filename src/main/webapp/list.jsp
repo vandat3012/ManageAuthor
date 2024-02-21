@@ -15,8 +15,9 @@
 </head>
 <body>
 
-<table class="table">
+<table class="table" border="1px">
     <thead>
+    <h1 align="center" class="">LIST ASSIGNMENT</h1>
     <tr>
         <th scope="col">ID</th>
         <th scope="col">DATE START</th>
@@ -39,12 +40,17 @@
             <td>${a.namePost}</td>
             <td>${a.nameAuthor}</td>
             <td>${a.price}</td>
-            <td></td>
-            <td></td>
+            <td>
+                <a class="btn btn-warning" href="/assignment?action=edit&id=${a.id}" role="button">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" href="/assignment?action=delete&id=${a.id}" role="button">Delete</a>
+            </td>
         </tr>
         </tbody>
     </c:forEach>
 
 </table>
+
 </body>
 </html>
