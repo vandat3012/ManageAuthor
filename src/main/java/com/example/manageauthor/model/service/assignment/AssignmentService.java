@@ -102,4 +102,47 @@ public class AssignmentService implements IAssignmentService {
         }
     }
 
+    @Override
+    public void delete(int id) {
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("delete from assignment \n" +
+                    "where id = ?;");
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<DTOAssignment> findByNameAuthor(String nameAuthor) {
+        List<DTOAssignment> dtoAssignmentList = new ArrayList<>();
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement("select am.id,am.date_start,am.date_end,am.note,p.name as name_post,a.name as name_author,a.price\n" +
+                    "from assignment am\n" +
+                    "join author a on a.id = am.id_author\n" +
+                    "join posts p on p.id = am.id_post\n" +
+                    "where a.name = ?;");
+            preparedStatement.setString(1,nameAuthor);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String dateS = String.valueOf(resultSet.getDate("date_start"));
+                String dateE = String.valueOf(resultSet.getDate("date_end"));
+                String note = resultSet.getString("note");
+                String namePost = resultSet.getString("name_post");
+                String nameAuthor1 = resultSet.getString("name_author");
+                int price = resultSet.getInt("price");
+                DTOAssignment dtoAssignment = new DTOAssignment(id,dateS,dateE,note,namePost,nameAuthor1,price);
+                dtoAssignmentList.add(dtoAssignment);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return dtoAssignmentList;
+    }
+
 }

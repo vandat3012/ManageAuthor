@@ -14,20 +14,22 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-<form method="post">
-    <div class="mb-3">
-        <label for="exampleInputAge" class="form-label">Date Start</label>
+<div class="row justify-content-center mt-4">
+<form class="col-md-6" method="post">
+    <h1 align="center" class="">Create New Assigment</h1>
+    <div class="form-group">
+        <label for="exampleInputAge">Date Start</label>
         <input type="text" name="dateS"  class="form-control" id="exampleInputAge">
     </div>
-    <div class="mb-3">
-        <label for="exampleInputAddress" class="form-label">Date End</label>
+    <div class="form-group">
+        <label for="exampleInputAddress">Date End</label>
         <input type="text" name="dateE"  class="form-control" id="exampleInputAddress">
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPhone" class="form-label">Note</label>
+    <div class="form-group">
+        <label for="exampleInputPhone">Note</label>
         <input type="text" name="note"  class="form-control" id="exampleInputPhone">
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label class="form-select">Name Posts</label>
         <select name="id_post" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
@@ -36,7 +38,7 @@
             </c:forEach>
         </select>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label class="form-select">Author</label>
         <select name="id_author" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
@@ -45,7 +47,7 @@
             </c:forEach>
         </select>
     </div>
-    <div class="mb-3">
+    <div class="form-group">
         <label class="form-select">Price</label>
         <select name="id_author" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
@@ -57,5 +59,6 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 </body>
 </html>

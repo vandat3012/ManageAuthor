@@ -10,4 +10,6 @@ public interface IAssignmentService {
     void createAssignment(Assignment assignment);
     Assignment findById (int id);
     void edit (Assignment assignment);
+    void delete (int id);
+    List<DTOAssignment> findByNameAuthor(String nameAuthor);
 }

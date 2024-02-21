@@ -38,8 +38,21 @@ public class AssignmentServlet extends HelloServlet {
             case "edit" :
                 showFormEdit(request,response);
                 break;
+            case "delete" :
+                deleteAssignment(request,response);
+                break;
             default:
                 showAllAssignment(request,response);
+        }
+    }
+
+    private void deleteAssignment(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        iAssignmentService.delete(id);
+        try {
+            response.sendRedirect("/assignment");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -101,10 +114,15 @@ public class AssignmentServlet extends HelloServlet {
             case "edit" :
                 editAssignment(req,resp);
                 break;
+            case "find" :
+                findByName(req,resp);
+                break;
             default:
                 showAllAssignment(req,resp);
     }
 }
+
+
 
     private void editAssignment(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
@@ -132,6 +150,19 @@ public class AssignmentServlet extends HelloServlet {
         iAssignmentService.createAssignment(assignment);
         try {
             resp.sendRedirect("/assignment");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void findByName(HttpServletRequest req, HttpServletResponse resp) {
+        String nameAuthor = req.getParameter("nameAuthor");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/list.jsp");
+        List<DTOAssignment> dtoAssignments = iAssignmentService.findByNameAuthor(nameAuthor);
+        req.setAttribute("dtoAssignment",dtoAssignments);
+        try {
+            requestDispatcher.forward(req,resp);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

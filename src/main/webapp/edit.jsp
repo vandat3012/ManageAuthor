@@ -9,16 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Edit Assignment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
 
     <div class="row justify-content-center mt-4">
-        <form class="col-md-6" method="post">
-            <h1 class="">Edit Assignment</h1>
+        <form  class="col-md-6" method="post">
+            <h1 align="center" class="">Edit Assignment</h1>
             <div  class="form-group">
                 <label hidden="hidden" for="txtId">ID</label>
                 <input type="hidden" class="form-control" name="id" id="txtId" value="${requestScope["assignment"].getId()}">
@@ -60,12 +59,11 @@
                 </select>
             </div>
             <div class="form-group mt-2">
-                <button class="btn btn-success" role="button" type="submit">Save</button>
-                <button class="btn btn-warning" role="button">Return</button>
+                <button class="btn btn-primary" role="button" type="submit">Save</button>
+                <button class="btn btn-primary" role="button">Return</button>
             </div>
         </form>
     </div>
-</div>
 </body>
 </body>
 </html>
