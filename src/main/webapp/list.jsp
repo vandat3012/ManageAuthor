@@ -14,31 +14,30 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
+
 <table class="table">
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">NAME</th>
-        <th scope="col">AGE</th>
-        <th scope="col">ADDRESS</th>
-        <th scope="col">PHONE NUMBER</th>
+        <th scope="col">DATE START</th>
+        <th scope="col">DATE END</th>
+        <th scope="col">NOTE</th>
         <th scope="col">NAME POSTS</th>
-        <th scope="col">DATES</th>
+        <th scope="col">NAME AUTHOR</th>
         <th scope="col">PRICE</th>
         <th scope="col">EDIT</th>
         <th scope="col">DELETE</th>
     </tr>
     </thead>
-    <c:forEach items="assignment" var="a">
+    <c:forEach items="${dtoAssignment}" var="a">
         <tbody>
         <tr>
-            <th scope="row">${a.id}</th>
-            <td>${a.name}</td>
-            <td>${a.age}</td>
-            <td>${a.address}</td>
-            <td>${a.phoneNumber}</td>
+            <th >${a.id}</th>
+            <td>${a.dateStart}</td>
+            <td>${a.dateEnd}</td>
+            <td>${a.note}</td>
             <td>${a.namePost}</td>
-            <td>${a.date}</td>
+            <td>${a.nameAuthor}</td>
             <td>${a.price}</td>
             <td></td>
             <td></td>

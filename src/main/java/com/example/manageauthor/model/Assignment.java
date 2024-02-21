@@ -2,16 +2,20 @@ package com.example.manageauthor.model;
 
 public class Assignment {
     private int id;
-    private int price;
+    private String dateStart;
+    private String dateEnd;
+    private String note;
     private int idPost;
     private int idAuthor;
 
     public Assignment() {
     }
 
-    public Assignment(int id, int price, int idPost, int idAuthor) {
+    public Assignment(int id, String dateStart, String dateEnd, String note, int idPost, int idAuthor) {
         this.id = id;
-        this.price = price;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.note = note;
         this.idPost = idPost;
         this.idAuthor = idAuthor;
     }
@@ -24,12 +28,28 @@ public class Assignment {
         this.id = id;
     }
 
-    public int getPrice() {
-        return price;
+    public String getDateStart() {
+        return dateStart;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public int getIdPost() {

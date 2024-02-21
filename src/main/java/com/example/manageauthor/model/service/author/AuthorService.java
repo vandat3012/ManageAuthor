@@ -23,10 +23,8 @@ public class AuthorService implements IAuthorService {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                int age = resultSet.getInt("age");
-                String address = resultSet.getString("address");
-                String phoneNumber = resultSet.getString("phoneNumber");
-                Author author = new Author(id,name,age,address,phoneNumber);
+                int price = resultSet.getInt("price");
+                Author author = new Author(id,name,price);
                 authorList.add(author);
             }
         } catch (SQLException e) {

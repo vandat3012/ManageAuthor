@@ -2,15 +2,14 @@ package com.example.manageauthor.model;
 public class Posts {
     private int id;
     private String name;
-    private String date;
+
 
     public Posts() {
     }
 
-    public Posts(int id, String name, String date) {
+    public Posts(int id, String name) {
         this.id = id;
         this.name = name;
-        this.date = date;
     }
 
     public int getId() {
@@ -27,13 +26,5 @@ public class Posts {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 }

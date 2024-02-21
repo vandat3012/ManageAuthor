@@ -25,8 +25,7 @@ public class PostsService implements IPostsService {
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
-                    String date = String.valueOf(resultSet.getDate("dates"));
-                    Posts posts = new Posts(id,name,date);
+                    Posts posts = new Posts(id,name);
                     postsList.add(posts);
                 }
             } catch (SQLException e) {

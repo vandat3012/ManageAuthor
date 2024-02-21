@@ -2,25 +2,23 @@ package com.example.manageauthor.model;
 
 public class DTOAssignment {
     private int id;
-    private String name;
-    private int age;
-    private String address;
-    private String phoneNumber;
+    private String dateStart;
+    private String dateEnd;
+    private String note;
     private String namePost;
-    private String date;
-    private String price;
+    private String nameAuthor;
+    private int price;
 
     public DTOAssignment() {
     }
 
-    public DTOAssignment(int id, String name, int age, String address, String phoneNumber, String namePost, String date, String price) {
+    public DTOAssignment(int id, String dateStart, String dateEnd, String note, String namePost, String nameAuthor, int price) {
         this.id = id;
-        this.name = name;
-        this.age = age;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.note = note;
         this.namePost = namePost;
-        this.date = date;
+        this.nameAuthor = nameAuthor;
         this.price = price;
     }
 
@@ -32,36 +30,28 @@ public class DTOAssignment {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDateStart() {
+        return dateStart;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 
-    public int getAge() {
-        return age;
+    public String getDateEnd() {
+        return dateEnd;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 
-    public String getAddress() {
-        return address;
+    public String getNote() {
+        return note;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getNamePost() {
@@ -72,19 +62,19 @@ public class DTOAssignment {
         this.namePost = namePost;
     }
 
-    public String getDate() {
-        return date;
+    public String getNameAuthor() {
+        return nameAuthor;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setNameAuthor(String nameAuthor) {
+        this.nameAuthor = nameAuthor;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

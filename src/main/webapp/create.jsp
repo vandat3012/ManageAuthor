@@ -39,8 +39,8 @@
         <label class="form-select">Name Posts</label>
         <select name="posts" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
-            <c:forEach items="post" var="p">
-                <option value="${p.id}">${p.namePost}</option>
+            <c:forEach items="${post}" var="p">
+                <option value="${p.id}">${p.name}</option>
             </c:forEach>
         </select>
     </div>
@@ -48,19 +48,14 @@
         <label class="form-select">Date</label>
         <select name="posts" class="form-select" aria-label="Default select example">
             <option selected>Open this select menu</option>
-            <c:forEach items="post" var="p">
+            <c:forEach items="${post}" var="p">
                 <option value="${p.id}">${p.date}</option>
             </c:forEach>
         </select>
     </div>
     <div class="mb-3">
-        <label class="form-select">Price</label>
-        <select name="assignment" class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <c:forEach items="assignment" var="a">
-                <option value="${a.id}">${a.price}</option>
-            </c:forEach>
-        </select>
+        <label for="exampleInputPrice" class="form-label">Price</label>
+        <input type="text" name = "price" class="form-control" id="exampleInputPrice">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
