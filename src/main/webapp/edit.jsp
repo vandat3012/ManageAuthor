@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label for="s">Date Start</label>
-                <input type="text" class="form-control" name="dateS" id="s" value="${requestScope["assginment"].getDateStart()}">
+                <input type="text" class="form-control" name="dateS" id="s" value="${requestScope["assignment"].getDateStart()}">
             </div>
             <div class="form-group">
                 <label for="e">Date Start</label>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="note">Note</label>
-                <input type="text" class="form-control" name="note" id="note" value="${requestScope["student"].getNote()}">
+                <input type="text" class="form-control" name="note" id="note" value="${requestScope["assignment"].getNote()}">
             </div>
             <div class="form-group">
                 <label for="id">Lớp</label>

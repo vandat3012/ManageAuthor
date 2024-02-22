@@ -17,15 +17,9 @@
 
 <table class="table" border="1px">
     <thead>
-    <form action="/assignment" method="post">
-        <h1>FIND BY NAME AUTHOR</h1>
-        <input name="action" value="find" hidden="">
-        <input name="nameAuthor">
-        <button class="btn btn-warning" type="submit">Find</button>
-    </form>
     <h1 align="center" class="">LIST ASSIGNMENT</h1>
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">STT</th>
         <th scope="col">DATE START</th>
         <th scope="col">DATE END</th>
         <th scope="col">NOTE</th>
@@ -57,9 +51,15 @@
     </c:forEach>
 
 </table>
-<div class="form-group mt-2" >
+<div class="form-group mt-4" >
+    <form action="/assignment" method="post">
+        <input name="action" value="find" hidden="">
+        <input name="nameAuthor">
+        <button class="btn btn-warning" type="submit">Find</button>
+    </form>
     <a class="btn btn-warning" href="/assignment?action=create" role="button">Create New Assignment</a>
     <a class="btn btn-warning" href="/assignment?action=sort" role="button">Sort By Name Author</a>
+    <a class="btn btn-warning" href="/assignment" role="button">Return After Sort</a>
 </div>
 
 </body>
