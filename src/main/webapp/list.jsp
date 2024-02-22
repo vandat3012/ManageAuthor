@@ -41,25 +41,25 @@
             <td>${a.nameAuthor}</td>
             <td>${a.price}</td>
             <td>
-                <a class="btn btn-warning" href="/assignment?action=edit&id=${a.id}" role="button">Edit</a>
+                <a class="btn btn-danger" href="/assignment?action=edit&id=${a.id}" role="button">Edit</a>
             </td>
             <td>
-                <a class="btn btn-warning" href="/assignment?action=delete&id=${a.id}" role="button">Delete</a>
+                <a class="btn btn-danger" href="/assignment?action=delete&id=${a.id}" role="button">Delete</a>
             </td>
         </tr>
         </tbody>
     </c:forEach>
 
 </table>
-<div class="form-group mt-4" >
-    <form action="/assignment" method="post">
-        <input name="action" value="find" hidden="">
-        <input name="nameAuthor">
-        <button class="btn btn-warning" type="submit">Find</button>
-    </form>
-    <a class="btn btn-warning" href="/assignment?action=create" role="button">Create New Assignment</a>
-    <a class="btn btn-warning" href="/assignment?action=sort" role="button">Sort By Name Author</a>
-    <a class="btn btn-warning" href="/assignment" role="button">Return After Sort</a>
+<div class="col-5" >
+        <form class="d-flex" role="search" action="/assignment" method="post">
+            <input name="action" value="find" hidden="">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="nameAuthor">
+            <button class="btn btn-danger" type="submit">Find</button>
+        </form>
+    <a class="btn btn-danger" href="/assignment?action=create" role="button">Create New Assignment</a>
+    <a class="btn btn-danger" href="/assignment?action=sort" role="button">Sort By Name Author</a>
+    <a class="btn btn-danger" href="/assignment" role="button">Return After Sort</a>
 </div>
 
 </body>

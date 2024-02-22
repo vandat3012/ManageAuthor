@@ -59,8 +59,8 @@
                 </select>
             </div>
             <div class="form-group mt-2">
-                <button class="btn btn-primary" role="button" type="submit">Save</button>
-                <button class="btn btn-primary" role="button">Return</button>
+                <button class="btn btn-danger" role="button" type="submit">Save</button>
+                <button class="btn btn-danger" role="button">Return</button>
             </div>
         </form>
     </div>
