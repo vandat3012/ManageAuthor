@@ -18,6 +18,7 @@
 <table class="table" border="1px">
     <thead>
     <form action="/assignment" method="post">
+        <h1>FIND BY NAME AUTHOR</h1>
         <input name="action" value="find" hidden="">
         <input name="nameAuthor">
         <button class="btn btn-warning" type="submit">Find</button>
@@ -56,8 +57,9 @@
     </c:forEach>
 
 </table>
-<div class="row justify-content-center mt-4">
+<div class="form-group mt-2" >
     <a class="btn btn-warning" href="/assignment?action=create" role="button">Create New Assignment</a>
+    <a class="btn btn-warning" href="/assignment?action=sort" role="button">Sort By Name Author</a>
 </div>
 
 </body>

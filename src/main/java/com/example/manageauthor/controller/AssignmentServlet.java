@@ -41,8 +41,24 @@ public class AssignmentServlet extends HelloServlet {
             case "delete" :
                 deleteAssignment(request,response);
                 break;
+            case "sort" :
+                sortByName(request,response);
+                break;
             default:
                 showAllAssignment(request,response);
+        }
+    }
+
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("list.jsp");
+        List<DTOAssignment> dtoAssignments = iAssignmentService.sortByName();
+        request.setAttribute("dtoAssignment",dtoAssignments);
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -116,6 +132,9 @@ public class AssignmentServlet extends HelloServlet {
                 break;
             case "find" :
                 findByName(req,resp);
+                break;
+            case "sort" :
+                sortByName(req,resp);
                 break;
             default:
                 showAllAssignment(req,resp);
