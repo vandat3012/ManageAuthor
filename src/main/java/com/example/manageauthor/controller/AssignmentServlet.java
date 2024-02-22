@@ -133,9 +133,6 @@ public class AssignmentServlet extends HelloServlet {
             case "find" :
                 findByName(req,resp);
                 break;
-            case "sort" :
-                sortByName(req,resp);
-                break;
             default:
                 showAllAssignment(req,resp);
     }

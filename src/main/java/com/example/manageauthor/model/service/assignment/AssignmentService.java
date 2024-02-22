@@ -32,7 +32,7 @@ public class AssignmentService implements IAssignmentService {
             "from assignment am\n" +
             "join author a on a.id = am.id_author\n" +
             "join posts p on p.id = am.id_post\n" +
-            "where a.name = ?;";
+            "where a.name=?;";
     public static final String SQL_SORT_BY_NAME_AUTHOR = "select am.id,am.date_start,am.date_end,am.note,p.name as name_post,a.name as name_author,a.price\n" +
             "from assignment am\n" +
             "join author a on a.id = am.id_author\n" +
